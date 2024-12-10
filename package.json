@@ -1,0 +1,25 @@
+{
+  "name": "bts-apollo-server",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "compile": "tsc",
+    "start": "npm run compile && node ./dist/index.js"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "type": "module",
+  "dependencies": {
+    "@apollo/server": "^4.11.2",
+    "graphql": "^16.9.0",
+    "graphql-tools": "^9.0.4",
+    "openapi-fetch": "^0.13.3"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}
