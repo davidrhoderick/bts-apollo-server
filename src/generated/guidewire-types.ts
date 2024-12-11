@@ -19,7 +19,7 @@ export interface paths {
                 content: {
                     "application/json": {
                         /** @example John Doe */
-                        name: string;
+                        fullName: string;
                         /** @example 42 */
                         age: number;
                     };
@@ -43,7 +43,7 @@ export interface paths {
         patch?: never;
         trace?: never;
     };
-    "/users/{id}": {
+    "/users/{userId}": {
         parameters: {
             query?: never;
             header?: never;
@@ -55,7 +55,7 @@ export interface paths {
                 query?: never;
                 header?: never;
                 path: {
-                    id: string;
+                    userId: string;
                 };
                 cookie?: never;
             };
@@ -86,9 +86,9 @@ export interface components {
     schemas: {
         User: {
             /** @example 123 */
-            id: string;
+            userId: string;
             /** @example John Doe */
-            name: string;
+            fullName: string;
             /** @example 42 */
             age: number;
         };
