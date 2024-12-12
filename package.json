@@ -4,6 +4,7 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
+    "codegen": "graphql-codegen-esm --config codegen.ts",
     "compile": "tsc",
     "start": "npm run compile && node ./dist/index.js"
   },
@@ -19,6 +20,8 @@
     "openapi-fetch": "^0.13.3"
   },
   "devDependencies": {
+    "@eddeee888/gcg-typescript-resolver-files": "^0.11.0",
+    "@graphql-codegen/cli": "^5.0.3",
     "@types/node": "^22.10.0",
     "typescript": "^5.7.2"
   }

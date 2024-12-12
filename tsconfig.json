@@ -7,12 +7,13 @@
     "lib": [
       "es2020"
     ],
-    "target": "es2020",
-    "module": "nodenext",
-    "moduleResolution": "NodeNext",
+    "target": "ES2018",
+    "moduleResolution": "node16",
+    "module": "node16",
     "esModuleInterop": true,
     "types": [
       "node"
     ]
-  }
+  },
+  "include": ["src/**/*"]
 }
