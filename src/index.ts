@@ -9,36 +9,36 @@ const client = createClient<paths>({ baseUrl: "http://localhost:3000" });
 
 const resolvers: { Query: QueryResolvers; Mutation: MutationResolvers } = {
   Query: {
-//     getUser: async (_parent, { id }) => {
-// const response = await client.GET("/users/{userId}", {
-//   params: { path: { userId: id } },
-// });
+    getUser: async (_parent, { id }) => {
+const response = await client.GET("/users/{userId}", {
+  params: { path: { userId: id } },
+});
 
-//       if (!response.data) throw new Error("No response");
+      if (!response.data) throw new Error("No response");
 
-//       return {
-//         id: response.data.userId,
-//         name: response.data.fullName,
-//         age: response.data.age,
-//       };
-//     },
+      return {
+        id: response.data.userId,
+        name: response.data.fullName,
+        age: response.data.age,
+      };
+    },
   },
   Mutation: {
-//     createUser: async (_parent, { createUserInput }) => {
-//       if (!createUserInput) throw new Error("No input");
+    createUser: async (_parent, { createUserInput }) => {
+      if (!createUserInput) throw new Error("No input");
 
-//       const { name, age } = createUserInput;
+      const { name, age } = createUserInput;
 
-//       const response = await client.POST("/users", {
-//         body: { fullName: name, age },
-//       });
+      const response = await client.POST("/users", {
+        body: { fullName: name, age },
+      });
 
-//       if (!response.data) throw new Error("No response");
+      if (!response.data) throw new Error("No response");
 
-//       const { fullName, age: pcAge, userId } = response.data;
+      const { fullName, age: pcAge, userId } = response.data;
 
-//       return { name: fullName, age: pcAge, id: userId };
-//     },
+      return { name: fullName, age: pcAge, id: userId };
+    },
   },
 };
 
