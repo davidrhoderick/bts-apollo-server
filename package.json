@@ -6,7 +6,10 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "codegen": "graphql-codegen-esm --config codegen.ts",
     "compile": "tsc",
-    "start": "npm run compile && node ./dist/index.js"
+    "start": "npm run compile && node ./dist/index.js",
+    "dev": "concurrently -k -n codegen,compile,server \"npm run watch:codegen\" \"npm run watch:compile\" \"nodemon dist/index.js\"",
+    "watch:codegen": "chokidar 'src/schema/**/*.graphql' -c 'npm run codegen'",
+    "watch:compile": "chokidar 'src/**/*.ts' -c 'npm run compile'"
   },
   "keywords": [],
   "author": "",
@@ -23,6 +26,9 @@
     "@eddeee888/gcg-typescript-resolver-files": "^0.11.0",
     "@graphql-codegen/cli": "^5.0.3",
     "@types/node": "^22.10.0",
+    "chokidar-cli": "^3.0.0",
+    "concurrently": "^9.1.0",
+    "nodemon": "^3.1.7",
     "typescript": "^5.7.2"
   }
 }
