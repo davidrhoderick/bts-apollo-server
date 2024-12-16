@@ -2,17 +2,23 @@ import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import createClient from "openapi-fetch";
 import { paths } from "./generated/pc-types.js";
+import { paths as actualPaths } from "./generated/actual-pc-types.js";
 import { typeDefs } from "./types/typeDefs.generated.js";
 import { MutationResolvers, QueryResolvers } from "./types/types.generated.js";
 
 const client = createClient<paths>({ baseUrl: "http://localhost:3000" });
+const actualClient = createClient<actualPaths>({
+  baseUrl: "http://localhost:3000",
+});
+
+const response = actualClient.GET('/jobs/{jobNumber}/locations/{policyLocationId}', {params: {path: {jobNumber: '123456', policyLocationId: '123545'}}})
 
 const resolvers: { Query: QueryResolvers; Mutation: MutationResolvers } = {
   Query: {
     getUser: async (_parent, { id }) => {
-const response = await client.GET("/users/{userId}", {
-  params: { path: { userId: id } },
-});
+      const response = await client.GET("/users/{userId}", {
+        params: { path: { userId: id } },
+      });
 
       if (!response.data) throw new Error("No response");
 
